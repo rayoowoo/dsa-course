@@ -28,7 +28,24 @@
 
 function iterateAcrossLinkedListBackwards(linkedList) {
     // TODO: Implement the iterateAcrossLinkedListBackwards function here
-
+    if (!linkedList.length) return "";
+    if (linkedList.length === 1) return linkedList.head.value.toString();
+    const list = [];
+    let node = linkedList.head;
+    while (node) {
+        let processedValue = node.value;
+        if (processedValue) processedValue = processedValue.toString();
+        list.push(processedValue);
+        node = node.next;
+    }
+    let result = "";
+    while (list.length) {
+        result += list.pop();
+        if (list.length) {
+            result += " -> ";
+        }
+    }
+    return result;
 }
 
 exports.iterateAcrossLinkedListBackwards = iterateAcrossLinkedListBackwards;
