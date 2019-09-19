@@ -38,13 +38,14 @@ function iterateAcrossLinkedListBackwards(linkedList) {
         list.push(processedValue);
         node = node.next;
     }
-    let result = "";
-    while (list.length) {
-        result += list.pop();
-        if (list.length) {
-            result += " -> ";
-        }
-    }
+    // let result = "";
+    // while (list.length) {
+    //     result += list.pop();
+    //     if (list.length) {
+    //         result += " -> ";
+    //     }
+    // }
+    list.reverse().join(" -> ")
     return result;
 }
 
