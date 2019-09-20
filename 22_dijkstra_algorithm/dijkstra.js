@@ -23,11 +23,13 @@ function dijkstras(graph, source) {
         const currNode = smallestNode(unvisited, distance);
         unvisited.delete(currNode);
 
+        if(!paths[currNode]) paths[currNode] = [source];
+
         for (neighbor in graph[currNode]) {
             const distanceToNeighbor = distance[currNode] + graph[currNode][neighbor];
             if (distance[neighbor] > distanceToNeighbor) {
                 distance[neighbor] = distanceToNeighbor;
-                paths[neighbor] = currNode;
+                paths[neighbor] = paths[currNode].concat([neighbor]);
             }
         }
     }
